@@ -5,8 +5,8 @@ import numpy as np
 
 
 # Load your trained Naive Bayes model using pickle
-with open('NaiveBayes.pkl', 'rb') as file:
-    model = pickle.load(file)
+
+model = pickle.load(open('NaiveBayes.pkl', 'rb'))
 
 st.title('CROP RECOMMENDATION SYSTEM')    
 
@@ -33,4 +33,4 @@ rainfall = st.sidebar.slider("Rainfall", 0.0, 500.0, 100.0)
 # Predict button
 if st.sidebar.button("Predict"):
     result = predict_crop(nitrogen, phosphorus, potassium, temperature, humidity, ph, rainfall)
-    st.success(f"The predicted crop is: {result}")
+    st.success(f"This condition is Best for Growing {result} Farm")
